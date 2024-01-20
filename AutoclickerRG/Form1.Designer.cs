@@ -34,17 +34,17 @@
             this.LeftUpX = new System.Windows.Forms.TextBox();
             this.LeftUpY = new System.Windows.Forms.TextBox();
             this.LeftUpCornerForm = new System.Windows.Forms.GroupBox();
-            this.LeftUpSetButton = new System.Windows.Forms.Button();
+            this.FocusFrame = new System.Windows.Forms.GroupBox();
+            this.FrameSetButton = new System.Windows.Forms.Button();
             this.RightDownCornerForm = new System.Windows.Forms.GroupBox();
-            this.RightDownSetButton = new System.Windows.Forms.Button();
             this.RightDownX = new System.Windows.Forms.TextBox();
             this.RightDownY = new System.Windows.Forms.TextBox();
-            this.FocusFrame = new System.Windows.Forms.GroupBox();
             this.RunStateMark = new System.Windows.Forms.CheckBox();
+            this.ShowFrameOverlay = new System.Windows.Forms.CheckBox();
             this.CPSForm.SuspendLayout();
             this.LeftUpCornerForm.SuspendLayout();
-            this.RightDownCornerForm.SuspendLayout();
             this.FocusFrame.SuspendLayout();
+            this.RightDownCornerForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // CPSValue
@@ -65,7 +65,7 @@
             this.CPSSetButton.TabIndex = 1;
             this.CPSSetButton.Text = "Set";
             this.CPSSetButton.UseVisualStyleBackColor = true;
-            this.CPSSetButton.Click += new System.EventHandler(this.button1_Click);
+            this.CPSSetButton.Click += new System.EventHandler(this.CPSSetButton_Click);
             // 
             // CPSForm
             // 
@@ -94,45 +94,49 @@
             // 
             // LeftUpCornerForm
             // 
-            this.LeftUpCornerForm.Controls.Add(this.LeftUpSetButton);
             this.LeftUpCornerForm.Controls.Add(this.LeftUpX);
             this.LeftUpCornerForm.Controls.Add(this.LeftUpY);
             this.LeftUpCornerForm.Location = new System.Drawing.Point(6, 19);
             this.LeftUpCornerForm.Name = "LeftUpCornerForm";
-            this.LeftUpCornerForm.Size = new System.Drawing.Size(110, 75);
+            this.LeftUpCornerForm.Size = new System.Drawing.Size(85, 75);
             this.LeftUpCornerForm.TabIndex = 5;
             this.LeftUpCornerForm.TabStop = false;
-            this.LeftUpCornerForm.Text = "Left-Up corner";
+            this.LeftUpCornerForm.Text = "Left-Up";
             // 
-            // LeftUpSetButton
+            // FocusFrame
             // 
-            this.LeftUpSetButton.Location = new System.Drawing.Point(62, 19);
-            this.LeftUpSetButton.Name = "LeftUpSetButton";
-            this.LeftUpSetButton.Size = new System.Drawing.Size(43, 46);
-            this.LeftUpSetButton.TabIndex = 5;
-            this.LeftUpSetButton.Text = "set";
-            this.LeftUpSetButton.UseVisualStyleBackColor = true;
+            this.FocusFrame.Controls.Add(this.ShowFrameOverlay);
+            this.FocusFrame.Controls.Add(this.FrameSetButton);
+            this.FocusFrame.Controls.Add(this.LeftUpCornerForm);
+            this.FocusFrame.Controls.Add(this.RightDownCornerForm);
+            this.FocusFrame.Location = new System.Drawing.Point(133, 13);
+            this.FocusFrame.Name = "FocusFrame";
+            this.FocusFrame.Size = new System.Drawing.Size(250, 105);
+            this.FocusFrame.TabIndex = 7;
+            this.FocusFrame.TabStop = false;
+            this.FocusFrame.Text = "Focus frame";
+            this.FocusFrame.Enter += new System.EventHandler(this.FocusFrame_Enter);
+            // 
+            // FrameSetButton
+            // 
+            this.FrameSetButton.Location = new System.Drawing.Point(188, 19);
+            this.FrameSetButton.Name = "FrameSetButton";
+            this.FrameSetButton.Size = new System.Drawing.Size(55, 39);
+            this.FrameSetButton.TabIndex = 7;
+            this.FrameSetButton.Text = "set coords";
+            this.FrameSetButton.UseVisualStyleBackColor = true;
+            this.FrameSetButton.Click += new System.EventHandler(this.FrameSetButton_Click);
             // 
             // RightDownCornerForm
             // 
-            this.RightDownCornerForm.Controls.Add(this.RightDownSetButton);
             this.RightDownCornerForm.Controls.Add(this.RightDownX);
             this.RightDownCornerForm.Controls.Add(this.RightDownY);
-            this.RightDownCornerForm.Location = new System.Drawing.Point(134, 19);
+            this.RightDownCornerForm.Location = new System.Drawing.Point(97, 19);
             this.RightDownCornerForm.Name = "RightDownCornerForm";
-            this.RightDownCornerForm.Size = new System.Drawing.Size(110, 75);
+            this.RightDownCornerForm.Size = new System.Drawing.Size(85, 75);
             this.RightDownCornerForm.TabIndex = 6;
             this.RightDownCornerForm.TabStop = false;
-            this.RightDownCornerForm.Text = "Right-Down corner";
-            // 
-            // RightDownSetButton
-            // 
-            this.RightDownSetButton.Location = new System.Drawing.Point(62, 19);
-            this.RightDownSetButton.Name = "RightDownSetButton";
-            this.RightDownSetButton.Size = new System.Drawing.Size(43, 46);
-            this.RightDownSetButton.TabIndex = 5;
-            this.RightDownSetButton.Text = "set";
-            this.RightDownSetButton.UseVisualStyleBackColor = true;
+            this.RightDownCornerForm.Text = "Right-Down";
             // 
             // RightDownX
             // 
@@ -148,17 +152,6 @@
             this.RightDownY.Size = new System.Drawing.Size(50, 20);
             this.RightDownY.TabIndex = 4;
             // 
-            // FocusFrame
-            // 
-            this.FocusFrame.Controls.Add(this.LeftUpCornerForm);
-            this.FocusFrame.Controls.Add(this.RightDownCornerForm);
-            this.FocusFrame.Location = new System.Drawing.Point(133, 13);
-            this.FocusFrame.Name = "FocusFrame";
-            this.FocusFrame.Size = new System.Drawing.Size(250, 105);
-            this.FocusFrame.TabIndex = 7;
-            this.FocusFrame.TabStop = false;
-            this.FocusFrame.Text = "Focus frame";
-            // 
             // RunStateMark
             // 
             this.RunStateMark.AutoSize = true;
@@ -169,6 +162,18 @@
             this.RunStateMark.TabIndex = 8;
             this.RunStateMark.Text = "Running";
             this.RunStateMark.UseVisualStyleBackColor = true;
+            this.RunStateMark.CheckedChanged += new System.EventHandler(this.RunStateMark_CheckedChanged);
+            // 
+            // ShowFrameOverlay
+            // 
+            this.ShowFrameOverlay.AutoSize = true;
+            this.ShowFrameOverlay.Location = new System.Drawing.Point(192, 67);
+            this.ShowFrameOverlay.Name = "ShowFrameOverlay";
+            this.ShowFrameOverlay.Size = new System.Drawing.Size(51, 17);
+            this.ShowFrameOverlay.TabIndex = 8;
+            this.ShowFrameOverlay.Text = "show";
+            this.ShowFrameOverlay.UseVisualStyleBackColor = true;
+            this.ShowFrameOverlay.CheckedChanged += new System.EventHandler(this.ShowFrameOverlay_CheckedChanged);
             // 
             // Form1
             // 
@@ -181,13 +186,15 @@
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Autoclicker menu";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.CPSForm.ResumeLayout(false);
             this.CPSForm.PerformLayout();
             this.LeftUpCornerForm.ResumeLayout(false);
             this.LeftUpCornerForm.PerformLayout();
+            this.FocusFrame.ResumeLayout(false);
+            this.FocusFrame.PerformLayout();
             this.RightDownCornerForm.ResumeLayout(false);
             this.RightDownCornerForm.PerformLayout();
-            this.FocusFrame.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,13 +208,13 @@
         private System.Windows.Forms.TextBox LeftUpX;
         private System.Windows.Forms.TextBox LeftUpY;
         private System.Windows.Forms.GroupBox LeftUpCornerForm;
-        private System.Windows.Forms.Button LeftUpSetButton;
-        private System.Windows.Forms.GroupBox RightDownCornerForm;
-        private System.Windows.Forms.Button RightDownSetButton;
-        private System.Windows.Forms.TextBox RightDownX;
-        private System.Windows.Forms.TextBox RightDownY;
         private System.Windows.Forms.GroupBox FocusFrame;
         private System.Windows.Forms.CheckBox RunStateMark;
+        private System.Windows.Forms.Button FrameSetButton;
+        private System.Windows.Forms.GroupBox RightDownCornerForm;
+        private System.Windows.Forms.TextBox RightDownX;
+        private System.Windows.Forms.TextBox RightDownY;
+        private System.Windows.Forms.CheckBox ShowFrameOverlay;
     }
 }
 
