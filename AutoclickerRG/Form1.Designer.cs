@@ -35,12 +35,12 @@
             this.LeftUpY = new System.Windows.Forms.TextBox();
             this.LeftUpCornerForm = new System.Windows.Forms.GroupBox();
             this.FocusFrame = new System.Windows.Forms.GroupBox();
+            this.ShowFrameOverlay = new System.Windows.Forms.CheckBox();
             this.FrameSetButton = new System.Windows.Forms.Button();
             this.RightDownCornerForm = new System.Windows.Forms.GroupBox();
             this.RightDownX = new System.Windows.Forms.TextBox();
             this.RightDownY = new System.Windows.Forms.TextBox();
             this.RunStateMark = new System.Windows.Forms.CheckBox();
-            this.ShowFrameOverlay = new System.Windows.Forms.CheckBox();
             this.CPSForm.SuspendLayout();
             this.LeftUpCornerForm.SuspendLayout();
             this.FocusFrame.SuspendLayout();
@@ -117,6 +117,17 @@
             this.FocusFrame.Text = "Focus frame";
             this.FocusFrame.Enter += new System.EventHandler(this.FocusFrame_Enter);
             // 
+            // ShowFrameOverlay
+            // 
+            this.ShowFrameOverlay.AutoSize = true;
+            this.ShowFrameOverlay.Location = new System.Drawing.Point(192, 67);
+            this.ShowFrameOverlay.Name = "ShowFrameOverlay";
+            this.ShowFrameOverlay.Size = new System.Drawing.Size(51, 17);
+            this.ShowFrameOverlay.TabIndex = 8;
+            this.ShowFrameOverlay.Text = "show";
+            this.ShowFrameOverlay.UseVisualStyleBackColor = true;
+            this.ShowFrameOverlay.CheckedChanged += new System.EventHandler(this.ShowFrameOverlay_CheckedChanged);
+            // 
             // FrameSetButton
             // 
             this.FrameSetButton.Location = new System.Drawing.Point(188, 19);
@@ -160,20 +171,9 @@
             this.RunStateMark.Name = "RunStateMark";
             this.RunStateMark.Size = new System.Drawing.Size(66, 17);
             this.RunStateMark.TabIndex = 8;
-            this.RunStateMark.Text = "Running";
+            this.RunStateMark.Text = "Runn&ing";
             this.RunStateMark.UseVisualStyleBackColor = true;
             this.RunStateMark.CheckedChanged += new System.EventHandler(this.RunStateMark_CheckedChanged);
-            // 
-            // ShowFrameOverlay
-            // 
-            this.ShowFrameOverlay.AutoSize = true;
-            this.ShowFrameOverlay.Location = new System.Drawing.Point(192, 67);
-            this.ShowFrameOverlay.Name = "ShowFrameOverlay";
-            this.ShowFrameOverlay.Size = new System.Drawing.Size(51, 17);
-            this.ShowFrameOverlay.TabIndex = 8;
-            this.ShowFrameOverlay.Text = "show";
-            this.ShowFrameOverlay.UseVisualStyleBackColor = true;
-            this.ShowFrameOverlay.CheckedChanged += new System.EventHandler(this.ShowFrameOverlay_CheckedChanged);
             // 
             // Form1
             // 

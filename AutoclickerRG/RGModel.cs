@@ -13,7 +13,8 @@ namespace AutoclickerRG
 
         public bool FrameIsVisible { get; set; }
 
-        public RGModel() {
+        public RGModel()
+        {
             CPS = 1;
             Frame = new Frame();
         }
@@ -27,6 +28,7 @@ namespace AutoclickerRG
         private void GenerateClicks()
         {
             AutoClick.DoLeftClick(System.Windows.Forms.Cursor.Position.X, System.Windows.Forms.Cursor.Position.Y);
+            Console.WriteLine("Do click!");
         }
 
         public void SetCPS(int trueCPS)
