@@ -17,6 +17,14 @@ namespace AutoclickerRG
         {
             InitializeComponent();
             Controller = new MainController(new RGModel(), new Validator());
+            HotKeyManager.RegisterHotKey(Keys.J, KeyModifiers.Alt);
+            HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
+        }
+
+        void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
+        {
+            RunStateMark.Checked = !RunStateMark.Checked;
+            Controller.SetRunState(RunStateMark.Checked);
         }
 
         private void CPSSetButton_Click(object sender, EventArgs e)
