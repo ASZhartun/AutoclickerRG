@@ -13,6 +13,11 @@ namespace AutoclickerRG
 
         public bool FrameIsVisible { get; set; }
 
+        public RGModel() {
+            CPS = 1;
+            Frame = new Frame();
+        }
+
         public void Run(bool isChecked)
         {
             IsRunning = isChecked;
