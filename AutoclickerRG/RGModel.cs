@@ -26,7 +26,7 @@ namespace AutoclickerRG
 
         private void GenerateClicks()
         {
-            return;
+            AutoClick.DoLeftClick(System.Windows.Forms.Cursor.Position.X, System.Windows.Forms.Cursor.Position.Y);
         }
 
         public void SetCPS(int trueCPS)
