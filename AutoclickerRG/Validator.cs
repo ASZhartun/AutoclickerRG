@@ -23,6 +23,10 @@ namespace AutoclickerRG
 
         private void NormalizeCoords(int[] trueCoords)
         {
+            for (int i = 0; i < trueCoords.Length; i++)
+            {
+                trueCoords[i] = trueCoords[i] > -1 ? trueCoords[i] : 0;
+            }
             trueCoords[2] = trueCoords[2] > Screen.PrimaryScreen.Bounds.Width ? Screen.PrimaryScreen.Bounds.Width : trueCoords[2];
             trueCoords[3] = trueCoords[3] > Screen.PrimaryScreen.Bounds.Height ? Screen.PrimaryScreen.Bounds.Height : trueCoords[3];
         }
