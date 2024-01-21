@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Threading;
 
 namespace AutoclickerRG
 {
@@ -22,13 +23,25 @@ namespace AutoclickerRG
         public void Run(bool isChecked)
         {
             IsRunning = isChecked;
-            GenerateClicks();
+            if (IsRunning)
+            {
+                Thread side = new Thread(DoClicks);
+                side.Start();
+            }
         }
 
         private void GenerateClicks()
         {
             AutoClick.DoLeftClick(System.Windows.Forms.Cursor.Position.X, System.Windows.Forms.Cursor.Position.Y);
             Console.WriteLine("Do click!");
+        }
+
+        public void DoClicks() {
+            while (IsRunning) {
+                AutoClick.DoLeftClick(System.Windows.Forms.Cursor.Position.X, System.Windows.Forms.Cursor.Position.Y);
+                Console.WriteLine("Do click!");
+                Thread.Sleep(1000 / CPS);
+            }
         }
 
         public void SetCPS(int trueCPS)
