@@ -36,8 +36,10 @@ namespace AutoclickerRG
             Console.WriteLine("Do click!");
         }
 
-        public void DoClicks() {
-            while (IsRunning) {
+        public void DoClicks()
+        {
+            while (IsRunning)
+            {
                 AutoClick.DoLeftClick(System.Windows.Forms.Cursor.Position.X, System.Windows.Forms.Cursor.Position.Y);
                 Console.WriteLine("Do click!");
                 Thread.Sleep(1000 / CPS);
@@ -59,12 +61,17 @@ namespace AutoclickerRG
         internal void ShowFrame(bool FrameVisibleIsChecked)
         {
             FrameIsVisible = FrameVisibleIsChecked;
-            DrawFrame();
+            Thread side = new Thread(frame => RefreshFrame((Frame)frame));
+            side.Start(Frame);
         }
 
-        private void DrawFrame()
+        private void RefreshFrame(Frame frame)
         {
-            return;
+            while (FrameIsVisible)
+            {
+                OverlayDrawer.DrawFrame(frame);
+                Console.WriteLine("Board frame must be on the screen");
+            }
         }
     }
 }
