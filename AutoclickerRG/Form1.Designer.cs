@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CPSValue = new System.Windows.Forms.TextBox();
             this.CPSSetButton = new System.Windows.Forms.Button();
             this.CPSForm = new System.Windows.Forms.GroupBox();
@@ -42,6 +43,8 @@
             this.RightDownY = new System.Windows.Forms.TextBox();
             this.RunStateMark = new System.Windows.Forms.CheckBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ShowTip = new System.Windows.Forms.ToolTip(this.components);
+            this.RunTip = new System.Windows.Forms.ToolTip(this.components);
             this.CPSForm.SuspendLayout();
             this.LeftUpCornerForm.SuspendLayout();
             this.FocusFrame.SuspendLayout();
@@ -126,6 +129,7 @@
             this.ShowFrameOverlay.Size = new System.Drawing.Size(51, 17);
             this.ShowFrameOverlay.TabIndex = 8;
             this.ShowFrameOverlay.Text = "show";
+            this.ShowTip.SetToolTip(this.ShowFrameOverlay, "Alt+G");
             this.ShowFrameOverlay.UseVisualStyleBackColor = true;
             this.ShowFrameOverlay.CheckedChanged += new System.EventHandler(this.ShowFrameOverlay_CheckedChanged);
             // 
@@ -173,6 +177,7 @@
             this.RunStateMark.Size = new System.Drawing.Size(66, 17);
             this.RunStateMark.TabIndex = 8;
             this.RunStateMark.Text = "Runn&ing";
+            this.RunTip.SetToolTip(this.RunStateMark, "Alt+J");
             this.RunStateMark.UseVisualStyleBackColor = true;
             this.RunStateMark.CheckedChanged += new System.EventHandler(this.RunStateMark_CheckedChanged);
             // 
@@ -217,6 +222,8 @@
         private System.Windows.Forms.TextBox RightDownY;
         private System.Windows.Forms.CheckBox ShowFrameOverlay;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolTip ShowTip;
+        private System.Windows.Forms.ToolTip RunTip;
     }
 }
 
