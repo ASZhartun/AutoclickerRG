@@ -51,7 +51,7 @@ namespace AutoclickerRG
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            RefreshFields();
         }
 
         private void RunStateMark_CheckedChanged(object sender, EventArgs e)
@@ -67,6 +67,15 @@ namespace AutoclickerRG
         private void ShowFrameOverlay_CheckedChanged(object sender, EventArgs e)
         {
             Controller.SetFrameVisible(ShowFrameOverlay.Checked);
+        }
+
+        private void RefreshFields() {
+            Dictionary<MainFormFields, string> dict = Controller.refreshFields();
+            CPSValue.Text = dict[MainFormFields.CPSValue];
+            LeftUpX.Text = dict[MainFormFields.LeftUpX];
+            LeftUpY.Text = dict[MainFormFields.LeftUpY];
+            RightDownX.Text = dict[MainFormFields.RightDownX];
+            RightDownY.Text = dict[MainFormFields.RightDownY];
         }
     }
 }

@@ -41,6 +41,7 @@
             this.RightDownX = new System.Windows.Forms.TextBox();
             this.RightDownY = new System.Windows.Forms.TextBox();
             this.RunStateMark = new System.Windows.Forms.CheckBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.CPSForm.SuspendLayout();
             this.LeftUpCornerForm.SuspendLayout();
             this.FocusFrame.SuspendLayout();
@@ -215,6 +216,7 @@
         private System.Windows.Forms.TextBox RightDownX;
         private System.Windows.Forms.TextBox RightDownY;
         private System.Windows.Forms.CheckBox ShowFrameOverlay;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

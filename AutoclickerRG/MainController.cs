@@ -17,23 +17,42 @@ namespace AutoclickerRG
             Validator = validator;
         }
 
-        public void SetCPS(string cps) {
+        public void SetCPS(string cps)
+        {
             int trueCPS = Validator.validateCPS(cps);
             RGModel.SetCPS(trueCPS);
         }
 
-        public void SetFrame(string[] coords) {
+        public void SetFrame(string[] coords)
+        {
             int[] trueCoords = Validator.validateCoord(coords);
             RGModel.SetFrame(trueCoords);
         }
 
-        public void SetRunState(bool isChecked) {
+        public void SetRunState(bool isChecked)
+        {
             RGModel.Run(isChecked);
         }
 
-        internal void SetFrameVisible(bool FrameVisibleIsChecked)
+        public void SetFrameVisible(bool FrameVisibleIsChecked)
         {
             RGModel.ShowFrame(FrameVisibleIsChecked);
         }
+
+        public Dictionary<MainFormFields, string> refreshFields()
+        {
+            return new Dictionary<MainFormFields, string>() {
+                { MainFormFields.CPSValue, RGModel.CPS.ToString()},
+                { MainFormFields.LeftUpX, RGModel.Frame.FirstPoint.X.ToString()},
+                { MainFormFields.LeftUpY, RGModel.Frame.FirstPoint.Y.ToString()},
+                { MainFormFields.RightDownX, RGModel.Frame.SecondPoint.X.ToString()},
+                { MainFormFields.RightDownY, RGModel.Frame.SecondPoint.Y.ToString()},
+            };
+        }
+    }
+
+    public enum MainFormFields
+    {
+        CPSValue, LeftUpX, LeftUpY, RightDownX, RightDownY,
     }
 }
